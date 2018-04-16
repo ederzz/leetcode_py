@@ -25,14 +25,14 @@ def lengthOfLengestSubstring(s):
 	charPos = {} # 存储字符串中的每个字符的最新索引
 	maxLength = 0 # 最长子串的长度
 	prePos = -1 # 子串开始位置
-	index = 0
 	for char in s:
 		charPos[char] = -1
-	for char in s:
+	for i in range(len(s)):
+		char = s[i]
 		prePos = max(prePos, charPos[char])
-		maxLength = max(maxLength, index - prePos)
-		charPos[char] = index
-		index += 1
+		maxLength = max(maxLength, i - prePos)
+		charPos[char] = i
+		i += 1
 
 	return maxLength
 
